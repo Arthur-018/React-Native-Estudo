@@ -7,6 +7,23 @@ export default function Index() {
       <Image source={require('./foco.png')}/>
 
      <View style={styles.actions}>
+      <View style={styles.context}>  
+        <Pressable style={styles.contextButtomActive}>
+          <Text style={styles.contextButtomText}>
+            Foco
+          </Text>
+        </Pressable>
+        <Pressable>
+          <Text style={styles.contextButtomText}>
+            Pausa curta
+          </Text>
+        </Pressable>
+        <Pressable>
+          <Text style={styles.contextButtomText}>
+           Pausa longa
+          </Text>
+        </Pressable>
+      </View>
        <Text style={styles.timer}>
       25:00
       </Text>
@@ -44,6 +61,20 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderColor: '#144480',
     gap: 32,
+  },
+  context: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'center'
+  },
+  contextButtomActive: {
+    backgroundColor: '#144480',
+    borderRadius: 8
+  },
+  contextButtomText: {
+    fontSize: 12.5,
+    color: '#FFF',
+    padding: 8
   },
   timer: {
     fontSize: 54,
