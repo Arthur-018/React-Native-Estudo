@@ -1,22 +1,23 @@
 import { useState } from "react";
 import { Image, StyleSheet, Text, View, Pressable } from "react-native";
+import {FokusButton} from '../components/FokusButton';
 
 const pomodoro = [
   {
     id: 'focus',
-    initialValue: 25,
+    initialValue: 25 *60,
     image: require('./pomodoro.png'),
     display: 'Foco'
   },
   {
     id: 'short',
-    initialValue: 5,
+    initialValue: 5 * 60,
     image: require('./short.png'),
     display: 'Pausa curta'
   },
   {
     id: 'long',
-    initialValue: 15,
+    initialValue: 15 * 60,
     image: require('./long.png'),
     display: 'Pausa longa'
   },
@@ -48,18 +49,14 @@ export default function Index() {
         <Text style={styles.timer}>
           { new Date(timerType.initialValue * 1000).toLocaleTimeString('pt-BR', { minute: '2-digit', second: '2-digit' }) }
         </Text>
-        <Pressable style={styles.button}>
-          <Text style={styles.buttonText}>
-            Começar
-          </Text>
-        </Pressable>
+        <FokusButton />
       </View>
       <View style={styles.footer}>
         <Text style={styles.footerText}>
           Projeto fictício e sem fins comerciais.
         </Text>
         <Text style={styles.footerText}>
-          Desenvolvido por Alura. 
+          Desenvolvido por Arthur!!!!!!!!!!. 
         </Text>
       </View>
     </View>
@@ -103,16 +100,6 @@ const styles = StyleSheet.create({
     color: '#FFF',
     fontWeight: 'bold',
     textAlign: 'center'
-  },
-  button: {
-    backgroundColor: '#B872FF',
-    borderRadius: 32,
-    padding: 8
-  },
-  buttonText: {
-    textAlign: 'center',
-    color: '#021123',
-    fontSize: 18
   },
   footer: {
     width: '80%',
