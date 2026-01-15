@@ -1,8 +1,6 @@
+import { Pressable, StyleSheet, Text } from "react-native"
 
-import {Pressable, StyleSheet, Text} from 'react-native';
-
-
-export const ActionButton = ({active, onPress, display}) => {
+export const ActionButton = ({ active, onPress, display }) => {
     return (
         <Pressable
             style={active ? styles.contextButtonActive : null}
@@ -16,7 +14,6 @@ export const ActionButton = ({active, onPress, display}) => {
 }
 
 const styles = StyleSheet.create({
- 
   contextButtonActive: {
     backgroundColor: '#144480',
     borderRadius: 8
@@ -25,4 +22,5 @@ const styles = StyleSheet.create({
     fontSize: 12.5,
     color: '#FFF',
     padding: 8
- }});
+  }
+})
