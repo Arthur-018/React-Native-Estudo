@@ -4,6 +4,7 @@ import { FokusButton } from "../components/FokusButton";
 import { ActionButton } from "../components/ActionButton";
 import { Timer } from "../components/Timer";
 import { IconPause, IconPlay } from "../components/Icons";
+import { useRouter } from "expo-router";
 
 const pomodoro = [
   {
@@ -33,6 +34,7 @@ export default function Pomodoro() {
   const [timerRunning, setTimerRunning] = useState(false)
 
   const timerRef = useRef(null)
+  const router = useRouter();
 
   const clear = () => {
     if (timerRef.current != null) {
