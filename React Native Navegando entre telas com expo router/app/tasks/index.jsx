@@ -1,11 +1,11 @@
-import { Text, View } from "react-native";
+import { SafeAreaView, Text } from "react-native";
 
-export default function Tasks () {
+export default function AddTask() {
     return (
-        <View>
-        <Text>
-        Página para listar tarefas
-        </Text>
-        </View>
-    )
-} 
+        <SafeAreaView>
+            <Text>
+                Adicionar uma tarefa
+            </Text>
+        </SafeAreaView>
+    );
+}
