@@ -17,7 +17,7 @@ export default function Index() {
         <Image source={require('../assets/images/home.png')} />
         <FokusButton 
         title="Quero iniciar!" 
-        onPress={() => router.navigate('/pomodoro')}
+        onPress={() => router.replace('/pomodoro')}
          />
       </View>
       <View style={styles.footer}>
