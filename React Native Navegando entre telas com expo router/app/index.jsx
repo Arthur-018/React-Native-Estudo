@@ -3,33 +3,30 @@ import { Image, StyleSheet, Text, View } from "react-native";
 import { FokusButton } from "../components/FokusButton";
 
 export default function Index() {
-  return (
-
-    <View style={styles.container}>
-      <Image source={require('../assets/images/logo.png')} />
-      <View style={styles.inner}>
-        <Text style={styles.title}>
-          Otimize sua {'\n'} produtividade,{'\n'}
+  return (<View style={styles.container}>
+    <Image source={require('../assets/images/logo.png')} />
+    <View style={styles.inner}>
+      <Text style={styles.title}>
+        Otimize sua {'\n'}produtividade,{'\n'}
         <Text style={styles.bold}>
-          mergulhe no que {'\n'} importa
+          mergulhe no que{'\n'} importa
         </Text>
-        </Text>
-        <Image source={require('../assets/images/home.png')} />
-        <FokusButton 
+      </Text>
+      <Image source={require('../assets/images/home.png')} />
+      <FokusButton 
         title="Quero iniciar!" 
-        onPress={() => router.replace('/pomodoro')}
-         />
-      </View>
-      <View style={styles.footer}>
-        <Text style={styles.footerText}>
-          Projeto fictício e sem fins comerciais.
-        </Text>
-        <Text style={styles.footerText}>
-          Desenvolvido por Alura.
-        </Text>
-      </View>
+        onPress={() => router.navigate('/pomodoro')}
+      />
     </View>
-  )
+    <View style={styles.footer}>
+      <Text style={styles.footerText}>
+        Projeto fictício e sem fins comerciais.
+      </Text>
+      <Text style={styles.footerText}>
+        Desenvolvido por Alura.
+      </Text>
+    </View>
+  </View>)
 }
 
 const styles = StyleSheet.create({
@@ -42,7 +39,7 @@ const styles = StyleSheet.create({
   },
   inner: {
     gap: 16
-  },
+  },   
   title: {
     color: '#FFF',
     textAlign: 'center',
@@ -50,7 +47,7 @@ const styles = StyleSheet.create({
   },
   bold: {
     fontWeight: 'bold'
-  },
+  },  
   footer: {
     width: '80%',
   },

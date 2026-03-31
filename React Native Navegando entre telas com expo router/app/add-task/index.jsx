@@ -1,38 +1,54 @@
-import { Keyboard, KeyboardAvoidingView, Platform, Pressable, StyleSheet, Text, TextInput, TouchableWithoutFeedback, View, } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
+import { KeyboardAvoidingView, Text, View, TextInput, Pressable, StyleSheet, Platform, TouchableWithoutFeedback, Keyboard } from "react-native";
 import { IconSave } from "../../components/Icons";
+import useTaskContext from "../../components/context/useTaskContext";
+import { useState } from "react";
+import { router } from "expo-router";
 
 export default function AddTask() {
-    return (
-        <KeyboardAvoidingView
-            style={styles.container}
-            behavior={Platform.os === 'ios' ? 'padding' : 'height'}
-        >
-            <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-                <View style={styles.inner}>
+
+    const [description, setDescription] = useState()
+
+    const { addTask } = useTaskContext()
+    
+    const submitTask = () => {
+        if (!description) {
+            return
+        }
+        addTask(description)
+        setDescription('')
+        router.navigate('/tasks')
+    }
+
+    return (<KeyboardAvoidingView
+        style={styles.container}
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+    >
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+            <View style={styles.inner}>
                 <Text style={styles.text}>
                     Adicionar uma tarefa:
                 </Text>
-                    <Text style={styles.label}>
-                        Em que voce está trabalhando?
-                    </Text>
-                    <TextInput
-                        style={styles.input}
-                        numberOfLines={10}
-                        multiline={true}
-                    />
-                    <View style={styles.actions}>
-                        <Pressable style={styles.button}>
-                            <IconSave />
-                            <Text>
-                                Salvar
-                            </Text>
-                        </Pressable>
-                    </View>
+                <Text style={styles.label}>
+                    Em que você está trabalhando?
+                </Text>
+                <TextInput
+                    style={styles.input}
+                    numberOfLines={10}
+                    multiline={true}
+                    value={description}
+                    onChangeText={setDescription}
+                />
+                <View style={styles.actions}>
+                    <Pressable style={styles.button} onPress={submitTask}>
+                        <IconSave />
+                        <Text>
+                            Salvar
+                        </Text>
+                    </Pressable>
                 </View>
-            </TouchableWithoutFeedback>
-        </KeyboardAvoidingView>
-    )
+            </View>
+        </TouchableWithoutFeedback>
+    </KeyboardAvoidingView>)
 }
 
 const styles = StyleSheet.create({
@@ -40,13 +56,12 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#021123',
         gap: 16,
-        alignItems: 'center',
+        alignItems: 'center'
     },
     text: {
         color: '#FFF',
         textAlign: 'center',
-        fontSize: 26,
-
+        fontSize: 26
     },
     inner: {
         backgroundColor: '#98A0A8',
@@ -60,17 +75,15 @@ const styles = StyleSheet.create({
         fontSize: 18
     },
     input: {
-        backgroundColor: '#FFF',
+        backgroundColor: '#fff',
         padding: 16,
         borderRadius: 8,
-        height: 100,
-
+        height: 100
     },
     button: {
         flexDirection: 'row',
         alignItems: 'center',
-        gap: 4,
-
+        gap: 4
     },
     actions: {
         flexDirection: 'row',

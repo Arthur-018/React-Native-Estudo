@@ -1,17 +1,17 @@
 import { Pressable, StyleSheet, Text } from "react-native"
 
 export const FokusButton = ({ onPress, title, icon, outline }) => {
-  return (
-    <Pressable 
-    style={[styles.button, outline && styles.outlineButton]}
-    onPress={onPress}
-    >
-      {icon}
-      <Text style={[styles.buttonText, outline && styles.outlineButtonText]}>
-        {title}
-      </Text>
-    </Pressable>
-  )
+    return (
+        <Pressable 
+          style={[styles.button, outline && styles.outlineButton]} 
+          onPress={onPress}
+        >
+            {icon}
+            <Text style={[styles.buttonText, outline && styles.outlineButtonText]}>
+                {title}
+            </Text>
+        </Pressable>
+    )
 }
 
 const styles = StyleSheet.create({
