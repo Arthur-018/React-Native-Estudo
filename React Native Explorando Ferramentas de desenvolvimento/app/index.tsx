@@ -30,6 +30,7 @@ const styles = StyleSheet.create({
   tittle: {
     fontSize: 25,
     color: "#FFF",
+    fontFamily: "MontSerrat_400Regular"
   },
   button: {
     width: "100%",
@@ -45,5 +46,6 @@ const styles = StyleSheet.create({
     color: "#01080E",
     fontSize: 20,
     fontWeight: "600",
+    fontFamily: "MontSerrat_600SemiBold"
   }
 })
