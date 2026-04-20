@@ -42,6 +42,17 @@ export default function Tasks() {
                             onPress={() => router.navigate('/add-task')}
                         />
                     </View>}
+                    ListEmptyComponent={<View>
+                        <Text style={{
+                            color: '#98A0A8',
+                            fontSize: 18,
+                            textAlign: 'center',
+                            marginTop: 40,
+                            marginBottom: 24
+                        }}>
+                            Ainda não há tarefas na sua lista, que tal adicionar?
+                        </Text>
+                    </View>}
                 />
             </View>
 
@@ -63,7 +74,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         color: '#FFF',
         fontSize: 26,
-        marginBottom: 16
+        margin: 16
     },
     inner: {
         gap: 8

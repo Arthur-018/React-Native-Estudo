@@ -65,6 +65,18 @@ export function TasksProvider({ children }) {
         // chamar persistencia
     }
 
+    const updateTask = (id, description) => {
+        setTasks(oldState => {
+            return oldState.map(t => {
+                if (t.id == id) {
+                    t.description = description
+                }
+                return t
+            })
+        })
+        // chamar persistencia
+    }
+
     const deleteTask = (id) => {
         setTasks(oldState => {
             return oldState.filter(t => t.id != id)
@@ -77,7 +89,8 @@ export function TasksProvider({ children }) {
             tasks,
             addTask,
             toggleTaskCompleted,
-            deleteTask
+            deleteTask,
+            updateTask
         }}>
             {children}
         </TaskContext.Provider>
